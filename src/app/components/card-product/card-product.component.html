@@ -1,18 +1,23 @@
-<p>card-product works!</p>
+
 <div class="cards-container">
-    <div class="product-card">
-      <img
-        src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-        alt=""
-      />
-      <div class="product-info">
-        <div>
-          <p>$120,00</p>
-          <p>Bike</p>
-        </div>
-        <figure>
-          <img src="./../../../assets/icons/bt_add_to_cart.svg" alt="" />
-        </figure>
+  <div class="product-card">
+    <img
+    [src]="product.image"
+      alt=""
+    />
+    <div class="product-info">
+      <div>
+        <p>$120,00</p>
+        <p>{{ product.name }}</p>
       </div>
+      <figure>
+        <img src="assents/icons/bt_add_to_cart.svg" alt="" />
+      </figure>
+    </div>
+    <div class="product-counter">
+      <button (click)="removeProduct()">-</button>
+      <p>{{ cantidad }}</p>
+      <button (click)="addProduct()">+</button>
     </div>
   </div>
+</div>

@@ -50,3 +50,10 @@
       height: 140px;
     }
   }
+
+  .product-counter{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 12px;
+}
