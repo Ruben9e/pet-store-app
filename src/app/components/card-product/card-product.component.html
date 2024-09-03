@@ -7,7 +7,7 @@
     />
     <div class="product-info">
       <div>
-        <p>$120,00</p>
+        <p>${{ product.price }}</p>
         <p>{{ product.name }}</p>
       </div>
       <figure>
@@ -19,5 +19,8 @@
       <p>{{ cantidad }}</p>
       <button (click)="addProduct()">+</button>
     </div>
+  </div>
+  <div *ngIf="soldOut" class="product-soldOut">
+    <b>Producto Agotado</b>
   </div>
 </div>

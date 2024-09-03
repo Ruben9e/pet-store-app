@@ -8,11 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class CardProductComponent implements OnInit{
 
   cantidad: number = 0;
+  soldOut: boolean = false;
 
 //Inicio objeto de producto.
   product = {
     name: 'Bike',
     price: 120,
+    description: 'Product Description',
+    inventory: 10,
     image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
   }
 //fin objeto de producto.
@@ -22,11 +25,19 @@ export class CardProductComponent implements OnInit{
   }
 
   addProduct(){
-    this.cantidad++;
+    if (this.cantidad < this.product.inventory) {
+      this.soldOut = false;
+      this.cantidad++;
+    } else {
+      this.soldOut = true;
+    }
   }
 
   removeProduct(){
-    this.cantidad--;
+    if(this.cantidad > 0){
+      this.soldOut = false;
+      this.cantidad--;
+    }
   }
 
 }
