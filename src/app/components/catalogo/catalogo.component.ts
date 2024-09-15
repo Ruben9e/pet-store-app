@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CartServicesService } from '../../services/cart-services.service';
+import { ServiceHttpService } from '../../services/service-http.service'
 
 @Component({
   selector: 'app-catalogo',
@@ -10,9 +11,9 @@ import { CartServicesService } from '../../services/cart-services.service';
 
 export class CatalogoComponent {
 
-  constructor(private cartServicesService: CartServicesService){
-
+  constructor(private cartServicesService: CartServicesService, private serviceHttpService: ServiceHttpService){
   }
+  
   // crea un método para añadir un producto al carrito
   addToCart(product: any) { 
 	  // utilizacion del metodo addTocart del servicio cartServicesService 
@@ -26,7 +27,7 @@ export class CatalogoComponent {
   // actulizar el array de productos con el atributo cantidad en cada producto
   products = [
     {
-      id:1,
+      id:1, 
       name: 'Bike_1',
       price: 120,
       description: 'Product Description',
