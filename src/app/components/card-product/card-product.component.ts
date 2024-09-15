@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 
 @Component({
@@ -13,8 +13,11 @@ export class CardProductComponent implements OnInit {
     price: 0,
     description: '',
     inventory: 0,
-    image: ''
+    image: '',
+    cantidad: 0
   };
+
+  @Output() addToCart = new EventEmitter();
 
   cantidad: number = 0;
   soldOut: boolean = false;
@@ -37,6 +40,13 @@ export class CardProductComponent implements OnInit {
     if (this.cantidad > 0) {
       this.soldOut = false;
       this.cantidad--;
+    }
+  }
+
+  addToCartHandler() {
+    if(this.cantidad > 0) {
+      this,this.product['cantidad'] = this.cantidad;
+      this.addToCart.emit(this.product)
     }
   }
 
